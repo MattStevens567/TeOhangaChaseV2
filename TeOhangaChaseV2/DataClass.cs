@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace TeOhangaChaseV2 {
     public class DataClass {
-        protected string mTimeLeft 
-            { get { return mTimeLeft; }
-            set { mTimeLeft = value; }
-        }
+
+        public string TimeLeft { get; set; }
 
     }
 }

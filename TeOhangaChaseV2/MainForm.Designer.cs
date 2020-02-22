@@ -26,12 +26,13 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.cashBuilderTab = new System.Windows.Forms.TabPage();
+            this.resetGameCB = new System.Windows.Forms.Button();
+            this.startTimerCB = new System.Windows.Forms.Button();
+            this.testLabel = new System.Windows.Forms.Label();
             this.launchCashBuilder = new System.Windows.Forms.Button();
             this.chaserVsPlayerTab = new System.Windows.Forms.TabPage();
             this.finalChaseTab = new System.Windows.Forms.TabPage();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
-            this.testLabel = new System.Windows.Forms.Label();
-            this.startTimerCB = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.cashBuilderTab.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +50,7 @@
             // 
             // cashBuilderTab
             // 
+            this.cashBuilderTab.Controls.Add(this.resetGameCB);
             this.cashBuilderTab.Controls.Add(this.startTimerCB);
             this.cashBuilderTab.Controls.Add(this.testLabel);
             this.cashBuilderTab.Controls.Add(this.launchCashBuilder);
@@ -59,6 +61,35 @@
             this.cashBuilderTab.TabIndex = 0;
             this.cashBuilderTab.Text = "Cash Builder";
             this.cashBuilderTab.UseVisualStyleBackColor = true;
+            // 
+            // resetGameCB
+            // 
+            this.resetGameCB.Location = new System.Drawing.Point(532, 210);
+            this.resetGameCB.Name = "resetGameCB";
+            this.resetGameCB.Size = new System.Drawing.Size(75, 23);
+            this.resetGameCB.TabIndex = 3;
+            this.resetGameCB.Text = "Reset Game";
+            this.resetGameCB.UseVisualStyleBackColor = true;
+            this.resetGameCB.Click += new System.EventHandler(this.resetGameCB_Click);
+            // 
+            // startTimerCB
+            // 
+            this.startTimerCB.Location = new System.Drawing.Point(532, 151);
+            this.startTimerCB.Name = "startTimerCB";
+            this.startTimerCB.Size = new System.Drawing.Size(75, 23);
+            this.startTimerCB.TabIndex = 2;
+            this.startTimerCB.Text = "Start Timer";
+            this.startTimerCB.UseVisualStyleBackColor = true;
+            this.startTimerCB.Click += new System.EventHandler(this.startTimerCB_Click);
+            // 
+            // testLabel
+            // 
+            this.testLabel.AutoSize = true;
+            this.testLabel.Location = new System.Drawing.Point(131, 161);
+            this.testLabel.Name = "testLabel";
+            this.testLabel.Size = new System.Drawing.Size(80, 13);
+            this.testLabel.TabIndex = 1;
+            this.testLabel.Text = "Stopwatch time";
             // 
             // launchCashBuilder
             // 
@@ -93,25 +124,6 @@
             // 
             this.mainTimer.Tick += new System.EventHandler(this.mainTimer_Tick);
             // 
-            // testLabel
-            // 
-            this.testLabel.AutoSize = true;
-            this.testLabel.Location = new System.Drawing.Point(131, 161);
-            this.testLabel.Name = "testLabel";
-            this.testLabel.Size = new System.Drawing.Size(80, 13);
-            this.testLabel.TabIndex = 1;
-            this.testLabel.Text = "Stopwatch time";
-            // 
-            // startTimerCB
-            // 
-            this.startTimerCB.Location = new System.Drawing.Point(532, 151);
-            this.startTimerCB.Name = "startTimerCB";
-            this.startTimerCB.Size = new System.Drawing.Size(75, 23);
-            this.startTimerCB.TabIndex = 2;
-            this.startTimerCB.Text = "Start Timer";
-            this.startTimerCB.UseVisualStyleBackColor = true;
-            this.startTimerCB.Click += new System.EventHandler(this.startTimerCB_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,6 +149,7 @@
         private System.Windows.Forms.Timer mainTimer;
         private System.Windows.Forms.Label testLabel;
         private System.Windows.Forms.Button startTimerCB;
+        private System.Windows.Forms.Button resetGameCB;
     }
 }
 
