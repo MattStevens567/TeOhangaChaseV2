@@ -17,7 +17,10 @@ namespace TeOhangaChaseV2 {
 
         private static Stopwatch mWatch = new Stopwatch();
         private static int mMsLeft;
-       
+
+        DataClass mySource = new DataClass();
+
+
 
         WMPLib.WindowsMediaPlayer countDownMusic;
         WMPLib.WindowsMediaPlayer stopTheChase;
@@ -28,34 +31,81 @@ namespace TeOhangaChaseV2 {
         WMPLib.WindowsMediaPlayer playerCorrect;
         WMPLib.WindowsMediaPlayer cashBuilderMusic;
 
-
         public MainForm() {
             InitializeComponent();
+            soundIntialization();
+            
         }
 
+
+        // --------------------------- Start of Cash Builder Code ---------------------------
         private void launchCashBuilder_Click(object sender, EventArgs e) {
             Thread thread = new Thread(RunCashBuilderForm);
             thread.Start();
         }
 
         public void RunCashBuilderForm() {
-            CashBuilderForm cashBuilderForm = new CashBuilderForm();
+            CashBuilderForm cashBuilderForm = new CashBuilderForm("LAHBALASLDAS"); //sets label in cashbuilder form to string
             cashBuilderForm.ShowDialog();
 
         }
 
         private void mainTimer_Tick(object sender, EventArgs e) {
+            
             mMsLeft -= (int)mWatch.ElapsedMilliseconds;
             mWatch.Restart();
-            testLabel.Text = mMsLeft.ToString();
+            
+
+            int minutes = mMsLeft / 60000;
+            int seconds = (mMsLeft - (minutes * 60000)) / 1000;
+            string timeLeftString = string.Format("{0}:{1:00}", minutes, seconds);
+
+            testLabel.Text = timeLeftString;
+
+           
         }
 
         private void startTimerCB_Click(object sender, EventArgs e) {
             mMsLeft = 60000;
-            mainTimer.Interval = 100;
+            mainTimer.Interval = 500;
+
+           
             mainTimer.Start();
             mWatch.Start();
+            countDownMusic.controls.play();
 
         }
+
+        // Resets game incase of accidental press of start
+        private void resetGameCB_Click(object sender, EventArgs e) {
+            mainTimer.Stop();
+            mWatch.Stop();
+            countDownMusic.controls.stop();
+        }
+
+        // --------------------------- END of Cash Builder Code ---------------------------
+
+        public void soundIntialization() {
+            countDownMusic = new WMPLib.WindowsMediaPlayer { URL = "GameSounds\\MinCountdown.mp3" };
+            stopTheChase = new WMPLib.WindowsMediaPlayer { URL = "GameSounds\\StopTheClock.mp3" };
+            finalChaseChaserWins = new WMPLib.WindowsMediaPlayer { URL = "GameSounds\\FinalChaseChaserWins.mp3" };
+            finalChasePlayerWins = new WMPLib.WindowsMediaPlayer { URL = "GameSounds\\FinalChasePlayerWins.mp3" };
+            finalChaseChaserCorrect = new WMPLib.WindowsMediaPlayer { URL = "GameSounds\\FinalChaseChaserCorrect.mp3" };
+            finalChasePlayerCorrect = new WMPLib.WindowsMediaPlayer { URL = "GameSounds\\FinalChasePlayerCorrect.mp3" };
+            playerCorrect = new WMPLib.WindowsMediaPlayer { URL = "GameSounds\\PlayerCorrect.mp3" };
+            cashBuilderMusic = new WMPLib.WindowsMediaPlayer { URL = "GameSounds\\CashBuilderMusic.mp3" };
+
+            countDownMusic.controls.stop();
+            stopTheChase.controls.stop();
+            finalChaseChaserWins.controls.stop();
+            finalChasePlayerWins.controls.stop();
+            finalChaseChaserCorrect.controls.stop();
+            finalChasePlayerCorrect.controls.stop();
+            playerCorrect.controls.stop();
+            cashBuilderMusic.controls.stop();
+
+        }
+
+
     }
 }
