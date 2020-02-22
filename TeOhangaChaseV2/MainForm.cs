@@ -19,6 +19,7 @@ namespace TeOhangaChaseV2 {
         private static int mMsLeft;
 
         DataClass mySource = new DataClass();
+        CashBuilderForm cashBuilderForm;
 
 
 
@@ -32,9 +33,9 @@ namespace TeOhangaChaseV2 {
         WMPLib.WindowsMediaPlayer cashBuilderMusic;
 
         public MainForm() {
+            cashBuilderForm = new CashBuilderForm();
             InitializeComponent();
             soundIntialization();
-            
         }
 
 
@@ -45,7 +46,7 @@ namespace TeOhangaChaseV2 {
         }
 
         public void RunCashBuilderForm() {
-            CashBuilderForm cashBuilderForm = new CashBuilderForm("LAHBALASLDAS"); //sets label in cashbuilder form to string
+            CashBuilderForm cashBuilderForm = new CashBuilderForm();
             cashBuilderForm.ShowDialog();
 
         }
@@ -62,6 +63,7 @@ namespace TeOhangaChaseV2 {
 
             testLabel.Text = timeLeftString;
 
+            cashBuilderForm.SetTestLabel(timeLeftString);
            
         }
 
