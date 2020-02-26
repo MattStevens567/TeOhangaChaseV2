@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace TeOhangaChaseV2 {
     public class DataClass {
-
         public string TimeLeft { get; set; }
+        public int AmountCorrect { get; set; }
+
+        public DataClass() {
+            Console.WriteLine("This is a constuctor");
+            AmountCorrect = 0;
+            TimeLeft = "";
+        }
+
 
     }
 }

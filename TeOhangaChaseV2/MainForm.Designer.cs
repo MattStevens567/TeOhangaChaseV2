@@ -28,11 +28,14 @@
             this.cashBuilderTab = new System.Windows.Forms.TabPage();
             this.resetGameCB = new System.Windows.Forms.Button();
             this.startTimerCB = new System.Windows.Forms.Button();
-            this.testLabel = new System.Windows.Forms.Label();
+            this.timeLabelMain = new System.Windows.Forms.Label();
             this.launchCashBuilder = new System.Windows.Forms.Button();
             this.chaserVsPlayerTab = new System.Windows.Forms.TabPage();
             this.finalChaseTab = new System.Windows.Forms.TabPage();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
+            this.amountLabelMain = new System.Windows.Forms.Label();
+            this.increaseAmountButton = new System.Windows.Forms.Button();
+            this.decreaseAmountButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.cashBuilderTab.SuspendLayout();
             this.SuspendLayout();
@@ -50,9 +53,12 @@
             // 
             // cashBuilderTab
             // 
+            this.cashBuilderTab.Controls.Add(this.decreaseAmountButton);
+            this.cashBuilderTab.Controls.Add(this.increaseAmountButton);
+            this.cashBuilderTab.Controls.Add(this.amountLabelMain);
             this.cashBuilderTab.Controls.Add(this.resetGameCB);
             this.cashBuilderTab.Controls.Add(this.startTimerCB);
-            this.cashBuilderTab.Controls.Add(this.testLabel);
+            this.cashBuilderTab.Controls.Add(this.timeLabelMain);
             this.cashBuilderTab.Controls.Add(this.launchCashBuilder);
             this.cashBuilderTab.Location = new System.Drawing.Point(4, 22);
             this.cashBuilderTab.Name = "cashBuilderTab";
@@ -66,9 +72,9 @@
             // 
             this.resetGameCB.Location = new System.Drawing.Point(532, 210);
             this.resetGameCB.Name = "resetGameCB";
-            this.resetGameCB.Size = new System.Drawing.Size(75, 23);
+            this.resetGameCB.Size = new System.Drawing.Size(103, 23);
             this.resetGameCB.TabIndex = 3;
-            this.resetGameCB.Text = "Reset Game";
+            this.resetGameCB.Text = "Stop/Reset Game";
             this.resetGameCB.UseVisualStyleBackColor = true;
             this.resetGameCB.Click += new System.EventHandler(this.resetGameCB_Click);
             // 
@@ -76,20 +82,20 @@
             // 
             this.startTimerCB.Location = new System.Drawing.Point(532, 151);
             this.startTimerCB.Name = "startTimerCB";
-            this.startTimerCB.Size = new System.Drawing.Size(75, 23);
+            this.startTimerCB.Size = new System.Drawing.Size(103, 23);
             this.startTimerCB.TabIndex = 2;
             this.startTimerCB.Text = "Start Timer";
             this.startTimerCB.UseVisualStyleBackColor = true;
             this.startTimerCB.Click += new System.EventHandler(this.startTimerCB_Click);
             // 
-            // testLabel
+            // timeLabelMain
             // 
-            this.testLabel.AutoSize = true;
-            this.testLabel.Location = new System.Drawing.Point(131, 161);
-            this.testLabel.Name = "testLabel";
-            this.testLabel.Size = new System.Drawing.Size(80, 13);
-            this.testLabel.TabIndex = 1;
-            this.testLabel.Text = "Stopwatch time";
+            this.timeLabelMain.AutoSize = true;
+            this.timeLabelMain.Location = new System.Drawing.Point(122, 151);
+            this.timeLabelMain.Name = "timeLabelMain";
+            this.timeLabelMain.Size = new System.Drawing.Size(80, 13);
+            this.timeLabelMain.TabIndex = 1;
+            this.timeLabelMain.Text = "Stopwatch time";
             // 
             // launchCashBuilder
             // 
@@ -124,6 +130,35 @@
             // 
             this.mainTimer.Tick += new System.EventHandler(this.mainTimer_Tick);
             // 
+            // amountLabelMain
+            // 
+            this.amountLabelMain.AutoSize = true;
+            this.amountLabelMain.Location = new System.Drawing.Point(141, 215);
+            this.amountLabelMain.Name = "amountLabelMain";
+            this.amountLabelMain.Size = new System.Drawing.Size(42, 13);
+            this.amountLabelMain.TabIndex = 4;
+            this.amountLabelMain.Text = "amount";
+            // 
+            // increaseAmountButton
+            // 
+            this.increaseAmountButton.Location = new System.Drawing.Point(316, 151);
+            this.increaseAmountButton.Name = "increaseAmountButton";
+            this.increaseAmountButton.Size = new System.Drawing.Size(107, 23);
+            this.increaseAmountButton.TabIndex = 5;
+            this.increaseAmountButton.Text = "Increase Amount";
+            this.increaseAmountButton.UseVisualStyleBackColor = true;
+            this.increaseAmountButton.Click += new System.EventHandler(this.increaseAmountButton_Click);
+            // 
+            // decreaseAmountButton
+            // 
+            this.decreaseAmountButton.Location = new System.Drawing.Point(316, 210);
+            this.decreaseAmountButton.Name = "decreaseAmountButton";
+            this.decreaseAmountButton.Size = new System.Drawing.Size(107, 23);
+            this.decreaseAmountButton.TabIndex = 6;
+            this.decreaseAmountButton.Text = "Decrease Amount";
+            this.decreaseAmountButton.UseVisualStyleBackColor = true;
+            this.decreaseAmountButton.Click += new System.EventHandler(this.decreaseAmountButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,9 +182,12 @@
         private System.Windows.Forms.TabPage chaserVsPlayerTab;
         private System.Windows.Forms.Button launchCashBuilder;
         private System.Windows.Forms.Timer mainTimer;
-        private System.Windows.Forms.Label testLabel;
+        private System.Windows.Forms.Label timeLabelMain;
         private System.Windows.Forms.Button startTimerCB;
         private System.Windows.Forms.Button resetGameCB;
+        private System.Windows.Forms.Button decreaseAmountButton;
+        private System.Windows.Forms.Button increaseAmountButton;
+        private System.Windows.Forms.Label amountLabelMain;
     }
 }
 
