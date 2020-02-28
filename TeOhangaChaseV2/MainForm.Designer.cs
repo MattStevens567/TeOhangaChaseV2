@@ -26,6 +26,9 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.cashBuilderTab = new System.Windows.Forms.TabPage();
+            this.decreaseAmountButton = new System.Windows.Forms.Button();
+            this.increaseAmountButton = new System.Windows.Forms.Button();
+            this.amountLabelMain = new System.Windows.Forms.Label();
             this.resetGameCB = new System.Windows.Forms.Button();
             this.startTimerCB = new System.Windows.Forms.Button();
             this.timeLabelMain = new System.Windows.Forms.Label();
@@ -33,11 +36,14 @@
             this.chaserVsPlayerTab = new System.Windows.Forms.TabPage();
             this.finalChaseTab = new System.Windows.Forms.TabPage();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
-            this.amountLabelMain = new System.Windows.Forms.Label();
-            this.increaseAmountButton = new System.Windows.Forms.Button();
-            this.decreaseAmountButton = new System.Windows.Forms.Button();
+            this.chaserCorrectButton = new System.Windows.Forms.Button();
+            this.playerCorrectButton = new System.Windows.Forms.Button();
+            this.revealAnswerButton = new System.Windows.Forms.Button();
+            this.decreasePlayerButton = new System.Windows.Forms.Button();
+            this.decreaseChaserButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.cashBuilderTab.SuspendLayout();
+            this.chaserVsPlayerTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -67,6 +73,35 @@
             this.cashBuilderTab.TabIndex = 0;
             this.cashBuilderTab.Text = "Cash Builder";
             this.cashBuilderTab.UseVisualStyleBackColor = true;
+            // 
+            // decreaseAmountButton
+            // 
+            this.decreaseAmountButton.Location = new System.Drawing.Point(316, 210);
+            this.decreaseAmountButton.Name = "decreaseAmountButton";
+            this.decreaseAmountButton.Size = new System.Drawing.Size(107, 23);
+            this.decreaseAmountButton.TabIndex = 6;
+            this.decreaseAmountButton.Text = "Decrease Amount";
+            this.decreaseAmountButton.UseVisualStyleBackColor = true;
+            this.decreaseAmountButton.Click += new System.EventHandler(this.decreaseAmountButton_Click);
+            // 
+            // increaseAmountButton
+            // 
+            this.increaseAmountButton.Location = new System.Drawing.Point(316, 151);
+            this.increaseAmountButton.Name = "increaseAmountButton";
+            this.increaseAmountButton.Size = new System.Drawing.Size(107, 23);
+            this.increaseAmountButton.TabIndex = 5;
+            this.increaseAmountButton.Text = "Increase Amount";
+            this.increaseAmountButton.UseVisualStyleBackColor = true;
+            this.increaseAmountButton.Click += new System.EventHandler(this.increaseAmountButton_Click);
+            // 
+            // amountLabelMain
+            // 
+            this.amountLabelMain.AutoSize = true;
+            this.amountLabelMain.Location = new System.Drawing.Point(141, 215);
+            this.amountLabelMain.Name = "amountLabelMain";
+            this.amountLabelMain.Size = new System.Drawing.Size(42, 13);
+            this.amountLabelMain.TabIndex = 4;
+            this.amountLabelMain.Text = "amount";
             // 
             // resetGameCB
             // 
@@ -109,6 +144,11 @@
             // 
             // chaserVsPlayerTab
             // 
+            this.chaserVsPlayerTab.Controls.Add(this.decreaseChaserButton);
+            this.chaserVsPlayerTab.Controls.Add(this.decreasePlayerButton);
+            this.chaserVsPlayerTab.Controls.Add(this.revealAnswerButton);
+            this.chaserVsPlayerTab.Controls.Add(this.playerCorrectButton);
+            this.chaserVsPlayerTab.Controls.Add(this.chaserCorrectButton);
             this.chaserVsPlayerTab.Location = new System.Drawing.Point(4, 22);
             this.chaserVsPlayerTab.Name = "chaserVsPlayerTab";
             this.chaserVsPlayerTab.Size = new System.Drawing.Size(768, 400);
@@ -130,34 +170,50 @@
             // 
             this.mainTimer.Tick += new System.EventHandler(this.mainTimer_Tick);
             // 
-            // amountLabelMain
+            // chaserCorrectButton
             // 
-            this.amountLabelMain.AutoSize = true;
-            this.amountLabelMain.Location = new System.Drawing.Point(141, 215);
-            this.amountLabelMain.Name = "amountLabelMain";
-            this.amountLabelMain.Size = new System.Drawing.Size(42, 13);
-            this.amountLabelMain.TabIndex = 4;
-            this.amountLabelMain.Text = "amount";
+            this.chaserCorrectButton.Location = new System.Drawing.Point(109, 174);
+            this.chaserCorrectButton.Name = "chaserCorrectButton";
+            this.chaserCorrectButton.Size = new System.Drawing.Size(114, 23);
+            this.chaserCorrectButton.TabIndex = 0;
+            this.chaserCorrectButton.Text = "Chaser Correct";
+            this.chaserCorrectButton.UseVisualStyleBackColor = true;
             // 
-            // increaseAmountButton
+            // playerCorrectButton
             // 
-            this.increaseAmountButton.Location = new System.Drawing.Point(316, 151);
-            this.increaseAmountButton.Name = "increaseAmountButton";
-            this.increaseAmountButton.Size = new System.Drawing.Size(107, 23);
-            this.increaseAmountButton.TabIndex = 5;
-            this.increaseAmountButton.Text = "Increase Amount";
-            this.increaseAmountButton.UseVisualStyleBackColor = true;
-            this.increaseAmountButton.Click += new System.EventHandler(this.increaseAmountButton_Click);
+            this.playerCorrectButton.Location = new System.Drawing.Point(109, 88);
+            this.playerCorrectButton.Name = "playerCorrectButton";
+            this.playerCorrectButton.Size = new System.Drawing.Size(114, 23);
+            this.playerCorrectButton.TabIndex = 1;
+            this.playerCorrectButton.Text = "Player Correct";
+            this.playerCorrectButton.UseVisualStyleBackColor = true;
             // 
-            // decreaseAmountButton
+            // revealAnswerButton
             // 
-            this.decreaseAmountButton.Location = new System.Drawing.Point(316, 210);
-            this.decreaseAmountButton.Name = "decreaseAmountButton";
-            this.decreaseAmountButton.Size = new System.Drawing.Size(107, 23);
-            this.decreaseAmountButton.TabIndex = 6;
-            this.decreaseAmountButton.Text = "Decrease Amount";
-            this.decreaseAmountButton.UseVisualStyleBackColor = true;
-            this.decreaseAmountButton.Click += new System.EventHandler(this.decreaseAmountButton_Click);
+            this.revealAnswerButton.Location = new System.Drawing.Point(109, 262);
+            this.revealAnswerButton.Name = "revealAnswerButton";
+            this.revealAnswerButton.Size = new System.Drawing.Size(114, 23);
+            this.revealAnswerButton.TabIndex = 2;
+            this.revealAnswerButton.Text = "Reveal Answer";
+            this.revealAnswerButton.UseVisualStyleBackColor = true;
+            // 
+            // decreasePlayerButton
+            // 
+            this.decreasePlayerButton.Location = new System.Drawing.Point(0, 345);
+            this.decreasePlayerButton.Name = "decreasePlayerButton";
+            this.decreasePlayerButton.Size = new System.Drawing.Size(99, 23);
+            this.decreasePlayerButton.TabIndex = 3;
+            this.decreasePlayerButton.Text = "Decrease Player";
+            this.decreasePlayerButton.UseVisualStyleBackColor = true;
+            // 
+            // decreaseChaserButton
+            // 
+            this.decreaseChaserButton.Location = new System.Drawing.Point(0, 376);
+            this.decreaseChaserButton.Name = "decreaseChaserButton";
+            this.decreaseChaserButton.Size = new System.Drawing.Size(99, 23);
+            this.decreaseChaserButton.TabIndex = 4;
+            this.decreaseChaserButton.Text = "Decrease Chaser";
+            this.decreaseChaserButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -170,6 +226,7 @@
             this.tabControl1.ResumeLayout(false);
             this.cashBuilderTab.ResumeLayout(false);
             this.cashBuilderTab.PerformLayout();
+            this.chaserVsPlayerTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -188,6 +245,11 @@
         private System.Windows.Forms.Button decreaseAmountButton;
         private System.Windows.Forms.Button increaseAmountButton;
         private System.Windows.Forms.Label amountLabelMain;
+        private System.Windows.Forms.Button decreaseChaserButton;
+        private System.Windows.Forms.Button decreasePlayerButton;
+        private System.Windows.Forms.Button revealAnswerButton;
+        private System.Windows.Forms.Button playerCorrectButton;
+        private System.Windows.Forms.Button chaserCorrectButton;
     }
 }
 

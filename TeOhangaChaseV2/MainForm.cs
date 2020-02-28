@@ -17,6 +17,8 @@ namespace TeOhangaChaseV2 {
 
         CashBuilderForm cashBuilderForm;
 
+        // Perhaps create a class to hold all the questions for chaser vs player
+
         private static Stopwatch mWatch = new Stopwatch();
         private static int mMsLeft;
 
@@ -58,6 +60,7 @@ namespace TeOhangaChaseV2 {
                 int seconds = (mMsLeft - (minutes * 60000)) / 1000;
                 timeLeftString = string.Format("{0}:{1:00}", minutes, seconds);
             } else {
+
                 timeLeftString = "0:00";
                 mainTimer.Stop();
                 mWatch.Stop();
@@ -86,7 +89,7 @@ namespace TeOhangaChaseV2 {
         private void launchCashBuilder_Click(object sender, EventArgs e) {
             Thread thread = new Thread(RunCashBuilderForm);
             thread.Start();
-
+            
         }
 
         public void RunCashBuilderForm() {
@@ -99,12 +102,12 @@ namespace TeOhangaChaseV2 {
         // Starts the cashBuilder game
         private void startTimerCB_Click(object sender, EventArgs e) {
             playingCB = true;
-            mMsLeft = 5000;
+            mMsLeft = 60000;
             mainTimer.Interval = 100;
  
             mainTimer.Start();
             mWatch.Start();
-            countDownMusic.controls.play();
+            cashBuilderMusic.controls.play();
 
         }
 
@@ -112,7 +115,7 @@ namespace TeOhangaChaseV2 {
         private void resetGameCB_Click(object sender, EventArgs e) {
             mainTimer.Stop();
             mWatch.Stop();
-            countDownMusic.controls.stop();
+            cashBuilderMusic.controls.stop();
 
             mySource.AmountCorrect = 0;
             amountLabelMain.Text = mySource.AmountCorrect.ToString();
@@ -157,16 +160,6 @@ namespace TeOhangaChaseV2 {
 
 
         // ------------------------- END OF FINAL CHASE CODE  -----------------------
-
-
-
-
-
-
-
-
-
-
 
         public void soundIntialization() {
             countDownMusic = new WMPLib.WindowsMediaPlayer { URL = "GameSounds\\MinCountdown.mp3" };
